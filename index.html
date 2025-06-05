@@ -1,161 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Engagement Invitation</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/floral-wallpaper.png');
-      background-color: #fff5ec;
-      background-size: contain;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-
-    .invitation-container {
-      position: relative;
-      text-align: center;
-      max-width: 600px;
-      width: 100%;
-      background: #fffaf5;
-      border: 8px double #d4af37;
-      border-radius: 24px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      padding: 30px 20px;
-      z-index: 1;
-    }
-
-    iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    #afterVideoMessage {
-      color: #5a4231;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    #afterVideoMessage h2 {
-      color: #b45f06;
-      margin-bottom: 10px;
-      font-size: 1.6rem;
-    }
-
-    #afterVideoMessage p {
-      margin: 6px 0;
-    }
-
-    h1 {
-      color: #a04000;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #6e4d3c;
-      margin-bottom: 20px;
-    }
-
-    .download-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #c77d0e;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .download-button:hover {
-      background-color: #a65c00;
-    }
-
-    /* Falling Flowers */
-    .flower {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      z-index: 0;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-50px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Pay Payment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4285f4;
+            margin: 20px 0;
+        }
+        
+        .pay-button {
+            background: linear-gradient(45deg, #4285f4, #34a853);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
+        }
+        
+        .pay-button:active {
+            transform: translateY(0);
+        }
+        
+        .google-pay-icon {
+            width: 24px;
+            height: 24px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCA0MCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIuNCA0LjJWMTEuOEg0LjRWNi44SDguNFY0LjJIMi40WiIgZmlsbD0id2hpdGUiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCA0MCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5LjMgOC40VjEwSDI0VjEwLjJDMjQgMTEuNCAyMy4yIDEyIDIxLjkgMTJDMjAuNSAxMiAxOS4zIDEwLjkgMTkuMyA5LjFDMTkuMyA3LjMgMjAuNSA2LjIgMjEuOSA2LjJDMjIuOCA2LjIgMjMuNSA2LjYgMjMuOCA3LjNMMjUuNSA2LjVDMjQuOSA1LjMgMjMuNSA0LjUgMjEuOSA0LjVDMTkuNCA0LjUgMTcuMyA2LjUgMTcuMyA5LjFDMTcuMyAxMS43IDE5LjQgMTMuNyAyMS45IDEzLjdDMjQuNSAxMy43IDI2IDEyIDI2IDkuNFY4LjRIMTkuM1oiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=') no-repeat center;
+            background-size: contain;
+        }
+        
+        .upi-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4285f4;
+        }
+        
+        .upi-id {
+            font-family: monospace;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Quick Payment</h1>
+        <p>Pay securely using Google Pay</p>
+        
+        <div class="amount">₹100</div>
+        
+        <div class="upi-info">
+            <strong>UPI ID:</strong><br>
+            <span class="upi-id" id="upiId">rocktonesmash-2@okaxis</span>
+        </div>
+        
+        <button class="pay-button" onclick="openGooglePay()">
+            <div class="google-pay-icon"></div>
+            Pay with Google Pay
+        </button>
+        
+        <p class="note">
+            Replace "rocktonesmash-2@okaxis" with your actual UPI ID in the code
+        </p>
+    </div>
 
-<!-- Party poppers -->
-<!-- <div class="popper left">🎉</div>
-<div class="popper right">🎉</div> -->
-
-<!-- Invitation Content -->
-<div class="invitation-container">
-  <h1>You're Invited!</h1>
-  <p>Join us in celebrating our engagement 🎉</p>
-
-  <!-- Google Drive video embed -->
-  <iframe id="inviteVideo" src="https://drive.google.com/file/d/1BmT2p2PkCE42ah5-OauAKR6j6BsinIqm/preview" allow="autoplay" allowfullscreen></iframe>
-
-  <div id="afterVideoMessage">
-    <h2>Janani ❤️ Nishanth</h2>
-    <p>Together with our families,</p>
-    <p>we joyfully invite you to celebrate our Engagement Ceremony</p>
-    <br>
-    <p>📅 <strong>Date:</strong> May 4, 2025</p>
-    <p>🕥 <strong>Time:</strong> 10:30 AM onwards</p>
-    <p>📍 <strong>Venue:</strong> Geetham Veg Restaurant, Medavakkam, Chennai</p>
-    <br>
-    <p>Your presence will make our special day even more memorable.</p>
-    <p>We look forward to celebrating this beautiful beginning with you!</p>
-    <br>
-    <a href="e-invite-card.jpg" download class="download-button">📥 Download E-Invite</a>
-  </div>
-</div>
-
-<!-- Falling flower script -->
-<script>
-  const emojis = ['🌸','💮','🌺','🌷','🌹','🌼'];
-  function createFlower() {
-    const flower = document.createElement('span');
-    flower.classList.add('flower');
-    flower.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    flower.style.left = Math.random() * 100 + 'vw';
-    flower.style.animationDuration = (Math.random() * 3 + 3) + 's';
-    document.body.appendChild(flower);
-    setTimeout(() => {
-      flower.remove();
-    }, 7000);
-  }
-
-  setInterval(createFlower, 400);
-</script>
-
+    <script>
+        function openGooglePay() {
+            // Replace 'rocktonesmash-2@okaxis' with your actual UPI ID
+            const upiId = 'rocktonesmash-2@okaxis';
+            const amount = '100';
+            const note = 'Payment via Google Pay';
+            
+            // Construct the UPI payment URL
+            const upiUrl = `upi://pay?pa=${upiId}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+            
+            // Try to open Google Pay first
+            const googlePayUrl = `tez://upi/pay?pa=${upiId}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+            
+            // For mobile browsers, try to open the native app
+            if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // Try Google Pay first, fallback to generic UPI
+                window.location.href = googlePayUrl;
+                
+                // Fallback after a short delay
+                setTimeout(() => {
+                    window.location.href = upiUrl;
+                }, 1000);
+            } else {
+                // For desktop, show instruction or redirect to web version
+                alert('Please scan the QR code with your mobile device or open this page on your phone to use Google Pay.');
+                
+                // Alternative: Generate UPI QR code URL (you can integrate a QR code library)
+                console.log('UPI URL:', upiUrl);
+            }
+        }
+        
+        // Update the displayed UPI ID when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can set your actual UPI ID here
+            const actualUpiId = 'rocktonesmash-2@okaxis'; // Change this to your UPI ID
+            document.getElementById('upiId').textContent = actualUpiId;
+        });
+    </script>
 </body>
 </html>
