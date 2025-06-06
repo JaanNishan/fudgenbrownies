@@ -323,7 +323,7 @@
             const note = `Payment for Order ${orderId}`;
             
             // UPI URL format for Google Pay
-            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(businessName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+            const upiUrl = `tez://upi/pay?pa=${upiId}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
             
             return upiUrl;
         }
