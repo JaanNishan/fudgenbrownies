@@ -330,6 +330,7 @@
         function displayOrderDetails(data) {
             orderData = data;
             dueAmount = parseFloat(data.due) || 0;
+            const paymentStatus = (data.paymentStatus || '').toLowerCase().trim();
 
             // Update order details display
             document.getElementById('orderIdDisplay').textContent = data.orderId;
@@ -343,8 +344,14 @@
             document.getElementById('orderInfo').style.display = 'block';
             document.getElementById('amountSection').style.display = 'block';
 
-            // Enable payment button and show verification section if there's an amount due
-            if (dueAmount > 0) {
+            // Check if payment status is "paid"
+            if (paymentStatus === 'paid') {
+                showMessage('✅ Order Amount has been paid', 'success');
+                // Hide payment button and verification section
+                document.getElementById('payButton').style.display = 'none';
+                document.getElementById('verificationSection').style.display = 'none';
+            } else if (dueAmount > 0) {
+                // Enable payment button and show verification section if there's an amount due
                 document.getElementById('payButton').style.display = 'block';
                 document.getElementById('payButton').disabled = false;
                 document.getElementById('verificationSection').style.display = 'block';
@@ -358,7 +365,7 @@
         }
 
         function setupWhatsAppButton() {
-            const whatsappNumber = "+9163813734190"; // Replace with your actual WhatsApp business number
+            const whatsappNumber = "+916381373419"; // Replace with your actual WhatsApp business number
             const orderId = orderData.orderId;
             const customerName = orderData.customerName || 'Customer';
             
